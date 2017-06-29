@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <h3> 用户注册 </h3>
+    <form action="/register/" method="post">
+            <table>
+               <tr>
+                   <th>用户姓名</th>
+                   <td> <input type="text" name="username"> </td>
+                   <th>用户登录名</th>
+                   <td> <input type="text" name="loginname">  </td>
+                   <th>密码</th>
+                   <td> <input type="password" name="password"> </td>
+               </tr>
+            </table>
+            <input type="submit" value="submit">
+        </form>
+    <h3>所有用户</h3>
+    <table border="_1_" cellspacing="0" cellpadding="0" >
+<tr> <th>用户ID</th> <th>用户姓名</th> <th>用户登录名</th> <th>用户密码</th> <th>用户操作</th>
+        </tr> {% for user in all_user %} <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.passwd }}</td>
+                <td>{{ user.delete }}</td>
+                {% if user.delete == "Y" %}
+                    <td>禁用</td>
+                {% else %}
+                    <td>激活</td>
+                {% endif %}
+                <td>激活</td>
+            </tr> {% endfor %}
+    </table>
+</div>
+</body>
+</html>
